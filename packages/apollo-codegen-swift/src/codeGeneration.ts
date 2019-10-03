@@ -164,6 +164,10 @@ export class SwiftAPIGenerator extends SwiftGenerator<CompilerContext> {
     );
     this.printNewline();
     this.printOnNewline(swift`import Apollo`);
+    this.printNewline();
+    this.printOnNewline(swift`#if canImport(Foundation)`);
+    this.printOnNewline(swift`import Foundation`);
+    this.printOnNewline(swift`#endif`);
   }
 
   /**
